@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>authorZEN</title>
+  <%= stylesheet_link_tag    "grid", "style" %>
+  <%= javascript_include_tag "jquery" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <%= image_tag 'logo.png' %>
+      <div id="user-info">
+        <% if current_user %>
+          Welcome, <%= current_user.name.present? ? "#{current_user.name}!" : "er, what's your name again...?" %>
+          <%= link_to "Sign Out", signout_path %>
+        <% else %>
+          <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div id="menu">
+      <ul>
+        <li><p>Snippets</p></li>
+        <li><p>Forums</p></li>
+        <li><p>Wiki</p></li>
+        <li><p>Articles</p></li>
+        <li><p>Users</p></li>
+      </ul>
+    </div>
+    
+    <%= yield %>
+  </div>
+</body>
+</html>

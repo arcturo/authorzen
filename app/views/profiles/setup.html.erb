@@ -1,0 +1,48 @@
+<div id="setup">
+  <h1>Hello, there.</h1>
+  <h2>We just need a little more information to complete your registration.</h2>
+</div>
+
+<div class="row">
+  <div class="column grid_11">
+    <div class="white-box">
+    <%= form_for @profile, :url => profile_path do |f| %>
+      <h3>We need this information...</h3>
+      <div class="form-field">
+        <%= f.label :name, "Your name" %>  <span class="error-explanation"><%= @profile.errors[:name].first  %></span><br />
+        <%= f.text_field :name, :class => "larger #{'error' if @profile.errors[:name].present?}" %>
+      </div>
+      
+      <div class="form-field">
+        <%= f.label :email, "Your e-mail" %> <span class="error-explanation"><%= @profile.errors[:email].first  %></span><br />
+        <%= f.text_field :email, :class => "larger #{'error' if @profile.errors[:email].present?}", :placeholder => "YourEmail@YourDomain.com" %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :username, "A username (just so we can identify you)" %> <span class="error-explanation"><%= @profile.errors[:username].first  %></span><br />
+        <%= f.text_field :username, :class => "larger #{'error' if @profile.errors[:username].present?}" %>
+      </div>
+      
+      <h3 style="margin-top: 20px;">These are just for fun...</h3>
+
+      <div class="form-field">
+        <%= f.label :url, "URL for your blog, website, Facebook, etc." %><br />
+        <%= f.text_field :url, :class => "larger", :placeholder => "http://www.you.com" %>
+      </div>
+      
+      <div class="form-field">
+        <%= f.label :bio, "Tell us a bit about yourself" %><br />
+        <%= f.text_area :bio, :class => "larger", :rows => 3, :placeholder => "I enjoy my Mac and long walks on the beach..." %>
+      </div>
+      
+      <div class="controls">
+        <%= f.submit 'Complete your profile', :class => "green-button" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  
+  <div class="sidebar column grid_3">
+    yo
+  </div>
+</div>
