@@ -13,13 +13,13 @@
       <div id="user-info">
         <% if current_user %>
           Welcome, <%= current_user.name.present? ? "#{current_user.name}!" : "er, what's your name again...?" %>
-          <%= link_to "Sign Out", signout_path %>
+          <%= link_to "Sign Out", main_app.signout_path %>
         <% else %>
           <%= link_to "Sign in with Twitter", "/auth/twitter" %>
         <% end %>
       </div>
     </div>
-    
+
     <div id="menu">
       <ul>
         <li><p>Snippets</p></li>
@@ -29,7 +29,7 @@
         <li><p>Users</p></li>
       </ul>
     </div>
-    
+
     <%= yield %>
   </div>
 </body>
