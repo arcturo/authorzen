@@ -5,6 +5,8 @@ Authorzen::Application.routes.draw do
     end
   end
   
+  mount Forem::Engine, :at => "/forums"
+
   match "/signout" => "sessions#destroy", :as => :signout
   match "/auth/:provider/callback" => "sessions#create"
 

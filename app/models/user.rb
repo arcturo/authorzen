@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_one :profile
-  
+
   delegate :name, :email, :bio, :username, :url, :to => :profile
   
   def self.create_with_omniauth(auth)
